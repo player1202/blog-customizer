@@ -1,32 +1,87 @@
-.container {
+// src/components/article-params-form/ArticleParamsForm.module.scss
+
+.overlay {
   position: fixed;
-  left: 0;
-  width: 616px;
-  height: 100%;
-  overflow: scroll;
-  transform: translate(-616px);
-  transition: transform 0.5s ease;
+  inset: 0;
+  z-index: 999;
+  background-color: rgb(0 0 0 / 50%);
+  animation: fade-in 0.3s ease;
 }
 
-.container_open {
-  transform: translate(0);
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 614px;
+  max-width: 90vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  box-shadow: 4px 0 20px rgb(0 0 0 / 10%);
+  animation: slide-in 0.3s ease;
 }
 
 .form {
   display: flex;
-  flex-shrink: 0;
   flex-direction: column;
-  box-sizing: border-box;
-  width: 616px;
-  height: auto;
-  min-height: 100%;
-  padding: 50px 31px;
-  background-color: #ffffff;
-  border-right: 1px solid #000000;
+  min-height: 100vh;
 }
 
-.bottomContainer {
+.header {
   display: flex;
   justify-content: space-between;
-  margin-top: auto;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.closeButton {
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px 32px;
+  border-top: 1px solid #e5e5e5;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
